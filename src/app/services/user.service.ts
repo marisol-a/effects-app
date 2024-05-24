@@ -15,4 +15,10 @@ export class UserService {
       .get(`${this.url}/users?per_page=6`)
       .pipe(map((response) => response['data']));
   }
+
+  getUserById(id: number) {
+    return this.http
+      .get(`${this.url}/users/${id}`)
+      .pipe(map((response) => response['data']));
+  }
 }

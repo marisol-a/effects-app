@@ -1,12 +1,23 @@
-<div class="card-group">
-  <div class="card" *ngFor="let user of users">
-    <img [src]="user.avatar" class="card-img-top" />
-    <div class="card-body">
-      <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
-      <p class="card-text">This is a wider card with supporting.</p>
-      <p class="card-text">
-        <small class="text-muted">ID: {{ user.id }}</small>
-      </p>
+<div class="alert-info alert text-center" *ngIf="loading">
+  <h4 class="alert-heading">Cargando</h4>
+  <p class="mb-0"><i class="fa fa-spin fa-spinner fs-2x"></i></p>
+</div>
+<div class="alert-danger alert text-center" *ngIf="error">
+  <h4 class="alert-heading">Error</h4>
+  <p class="mb-0"><i class="fa-solid fa-triangle-exclamation fa-2x"></i></p>
+  <p>{{ error.message | json }}</p>
+</div>
+<div class="row row-cols-2 row-cols-md-3 g-3" *ngIf="!loading">
+  <div class="col" *ngFor="let user of users">
+    <div class="card">
+      <img [src]="user.avatar" class="card-img-top" />
+      <div class="card-body">
+        <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+        <p class="card-text">This is a longer is a little bit longer.</p>
+        <p class="card-text">
+          <small class="text-muted">ID: {{ user.id }}</small>
+        </p>
+      </div>
     </div>
   </div>
 </div>
